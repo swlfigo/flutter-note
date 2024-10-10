@@ -1,0 +1,20 @@
+name: 'Gitbook Build'
+on:
+  push:
+    branches:
+      - master  # trigger branch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout action
+      uses: actions/checkout@v4
+    - name: Gitbook Action
+      uses: ZanderZhao/gitbook-action@v1.2.4
+      with:
+        token: ${{ secrets.PERSONAL_TOKEN }}
+        time_zone: Asia/Shanghai
+        git_name: Sylar
+        git_email: swlfigo@gmail.com
+        publish_branch: gh-pages
+        publish_push_force: false
